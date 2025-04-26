@@ -46,28 +46,31 @@ def run_test_command(command):
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     return result.stdout + "\n" + result.stderr
 
-if st.button("Run Unit Tests"):
-    output = run_test_command("pytest tests/test_unit.py --cov=src --cov-report=term-missing")
+# Unit Testing (test_basic.py)
+if st.button("Run Unit Tests (test_basic.py)"):
+    output = run_test_command("pytest tests/test_basic.py --cov=src --cov-report=term-missing")
     st.code(output)
 
-if st.button("Run Parameterized Tests"):
-    output = run_test_command("pytest tests/test_parameterized.py")
+# Advanced Testing Features (test_advanced.py)
+if st.button("Run Advanced Tests (Parameterized, Fixtures, Mocking)"):
+    output = run_test_command("pytest tests/test_advanced.py")
     st.code(output)
 
-if st.button("Run Fixture Tests"):
-    output = run_test_command("pytest tests/test_fixtures.py")
+# Property-Based Testing (test_property.py)
+if st.button("Run Property-Based Tests (test_property.py)"):
+    output = run_test_command("pytest tests/test_property.py")
     st.code(output)
 
-if st.button("Run Mocking Tests"):
-    output = run_test_command("pytest tests/test_mocking.py")
+# TDD Testing (test_tdd.py)
+if st.button("Run TDD Tests (test_tdd.py)"):
+    output = run_test_command("pytest tests/test_tdd.py")
     st.code(output)
 
+# HTML Report Generation
 if st.button("Generate HTML Report"):
     output = run_test_command("pytest --html=report.html")
     st.code(output)
     st.markdown("✅ HTML Report generated: `report.html` (Check project folder)")
 
-if st.button("Run TDD Tests"):
-    output = run_test_command("pytest tests/test_tdd.py")
-    st.code(output)
-
+st.markdown("---")
+st.caption("CS4090 To-Do App Testing Assignment")
