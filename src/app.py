@@ -68,3 +68,6 @@ if st.button("Generate HTML Report"):
     st.markdown("✅ HTML Report generated: `report.html` (Check project folder)")
 
 if st.button("Run TDD Tests"):
+    output = run_test_command("pytest tests/test_tdd.py")
+    st.code(output)
+
